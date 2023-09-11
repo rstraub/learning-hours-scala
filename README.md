@@ -2,6 +2,8 @@
 
 ## 1. Scala Features
 
+Loosely uses https://www.scala-exercises.org/std_lib as inspiration, have a look if you want to learn more about Scala.
+
 Some of the features of Scala that you might have seen so far are:
 - Type Inference
 - Immutability (val vs var & immutable collections)
@@ -11,8 +13,8 @@ Some of the features of Scala that you might have seen so far are:
 - Etc...
 
 Some that you might have not seen (in detail) yet are:
-- [Tuples](https://www.scala-exercises.org/std_lib/tuples)
-- Objects
+- Tuples
+- Objects and Companion Objects
 - Case Classes
 - Traits and [Algebraic Data Types](https://en.wikipedia.org/wiki/Algebraic_data_type)
 - Pattern Matching
@@ -21,4 +23,4 @@ Some that you might have not seen (in detail) yet are:
 - Ranges
 - Non-strictness (Lazy Evaluation)
 
-Which we'll dive into these today. Exercises can be found in the `src/main/scala/learninghours/partone` folder.
+Which we'll dive into today. Exercises can be found in the `src/main/scala/learninghours/partone` folder.
