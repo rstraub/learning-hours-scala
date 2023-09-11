@@ -27,12 +27,22 @@ class ForComprehensionSpec extends AnyFlatSpec with Matchers {
     // TODO extract the names of pets using a for comprehension
     // Tip: you can "desugar" a for comprehension in intellij to see what it looks like under the hood
 
-//    result shouldBe List("Garfield", "Nermal", "Tom", "Sylvester", "Tweety")
+    val result = for {
+      owner <- List(joe, jane)
+      pet <- owner.pets
+    } yield pet.name
+    result shouldBe List("Garfield", "Nermal", "Tom", "Sylvester", "Tweety")
   }
 
   it should "be used to filter too" in {
     // TODO extract the names of pets that are older than 10 and have a favorite dish using a for comprehension
 
-//    result shouldBe List(("Garfield" -> "Lasagne"))
+    val result = for {
+      owner <- List(joe, jane)
+      pet <- owner.pets
+      if pet.age > 10
+      dish <- pet.favoriteDish
+    } yield pet.name -> dish
+    result shouldBe List(("Garfield" -> "Lasagne"))
   }
 }
