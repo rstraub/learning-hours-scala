@@ -19,8 +19,12 @@ Some that you might have not seen (in detail) yet are:
 - Traits and [Algebraic Data Types](https://en.wikipedia.org/wiki/Algebraic_data_type)
 - Pattern Matching
 - Functions as First Class Citizens
+
+Which we'll dive into today. Exercises can be found in the `src/main/scala/learninghours/partone` folder.
+
+If we have time, we'll also look at:
 - Operator Overloading
 - Ranges
 - Non-strictness (Lazy Evaluation)
+Otherwise, we'll tackle them later
 
-Which we'll dive into today. Exercises can be found in the `src/main/scala/learninghours/partone` folder.
