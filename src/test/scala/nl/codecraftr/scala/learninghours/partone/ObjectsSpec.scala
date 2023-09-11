@@ -11,6 +11,15 @@ class ObjectsSpec extends AnyFlatSpec with Matchers {
     private def secret: String = "psst, I like turtles"
   }
 
+  private object Person {
+    def from(name: String, age: Int): Person = name match {
+        case "Jane" => Person(name, age, "Female")
+        case "John" => Person(name, age, "Male")
+    }
+
+    def talkTo(person: Person): String = s"${person.name} has a secret: ${person.secret}"
+  }
+
   "objects" should "create singletons" in {
     // Answer the following questions in your group:
     // What is the difference between an object and a class?
@@ -19,16 +28,20 @@ class ObjectsSpec extends AnyFlatSpec with Matchers {
 
     // TODO define a calculator objects with a calculate method and make the assertions pass
     // TODO print something in the object body and inspect when that is executed
+    object Calculator {
+      println("I'm a calculator!")
+      def add(a: Int, b: Int): Int = a + b
+    }
 
-    // Calculator.add(1, 2) shouldBe 3
+    Calculator.add(1, 2) shouldBe 3
   }
 
   "companion objects" should "offer methods/variables for a corresponding class" in {
     // TODO define a companion object for the Person class and make the assertions pass
     // Make the `from` method determine the gender
 
-    // Person.from("John", 42) shouldBe Person("John", 42, "Male")
-    // Person.from("Jane", 37) shouldBe Person("Jane", 37, "Female")
+     Person.from("John", 42) shouldBe Person("John", 42, "Male")
+     Person.from("Jane", 37) shouldBe Person("Jane", 37, "Female")
   }
 
   it should "be able to access private variables/methods in its corresponding class" in {
@@ -36,6 +49,6 @@ class ObjectsSpec extends AnyFlatSpec with Matchers {
     // Define a method `talkTo` on the companion object for the Person class
     // Call the `secret` method from with `talkTo`
 
-    // Person.talkTo(Person("John", 42, "Male")) shouldBe "John has a secret: psst, I like turtles"
+     Person.talkTo(Person("John", 42, "Male")) shouldBe "John has a secret: psst, I like turtles"
   }
 }
