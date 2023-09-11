@@ -19,6 +19,7 @@ Some that you might have not seen (in detail) yet are:
 - Traits and [Algebraic Data Types](https://en.wikipedia.org/wiki/Algebraic_data_type)
 - Pattern Matching
 - Functions as First Class Citizens
+- For comprehensions
 
 Which we'll dive into today. Exercises can be found in the `src/main/scala/learninghours/partone` folder.
 
