@@ -15,7 +15,7 @@ trait Describable {
 
 trait Combinable {
   val name: String
-  def combine(color: Color): String = s"$name and ${color.name}"
+  def combine(other: Combinable): String = s"$name and ${other.name}"
 }
 
 object Color {
