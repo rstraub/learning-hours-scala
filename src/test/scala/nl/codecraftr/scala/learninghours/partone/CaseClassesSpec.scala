@@ -9,7 +9,7 @@ class CaseClassesSpec extends AnyFlatSpec with Matchers {
     // TODO create a case class Cat and make the assertions pass
 
     // val cat = Cat("Garfield", "Ginger")
-    // val cat2 = cat2.copy(name = "Nermal")
+    // val cat2 = cat.copy(name = "Nermal")
     // val cat3 = Cat("Garfield", "Ginger")
 
     // cat == cat2 shouldBe false
