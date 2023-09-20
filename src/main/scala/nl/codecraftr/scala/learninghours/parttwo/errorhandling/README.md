@@ -2,13 +2,12 @@
 
 This time we'll dive into error handling in Scala, and FP in general. We'll look at the following topics:
 
-- Referential Transparency & Side Effects
-- Exceptions
-- Sentinel Values
-- Try
-- Option
-- Either
-- Validated
+1. Referential Transparency, Exceptions & Side Effects (ReferentialTransparencySpec)
+2. Sentinel Values (SentinelValuesSpec)
+3. Try (TrySpec)
+4. Option (OptionSpec)
+5. Either (EitherSpec)
+6. Validated (ValidatedSpec)
 
 Want to explore on your own?
 Check out these resources:
