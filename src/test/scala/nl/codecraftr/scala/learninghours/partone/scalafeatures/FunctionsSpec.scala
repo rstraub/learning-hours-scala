@@ -1,4 +1,4 @@
-package nl.codecraftr.scala.learninghours.partone
+package nl.codecraftr.scala.learninghours.partone.scalafeatures
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers

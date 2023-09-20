@@ -1,6 +1,6 @@
-package nl.codecraftr.scala.learninghours.partone
+package nl.codecraftr.scala.learninghours.partone.scalafeatures
 
-import nl.codecraftr.scala.learninghours.partone.Color._
+import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
