@@ -1,6 +1,8 @@
 # Part Two - Error Handling (the functional way)
 
-This time we'll dive into error handling in Scala, and FP in general. We'll look at the following topics:
+This time we'll dive into error handling, as it is a highly relevant topic.
+We'll look at concepts, how to do it in Scala, and FP in general.
+The topics we'll dive into are:
 
 1. Referential Transparency, Exceptions & Side Effects (ReferentialTransparencySpec)
 2. Sentinel Values (SentinelValuesSpec)
