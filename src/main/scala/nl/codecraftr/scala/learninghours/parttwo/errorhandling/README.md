@@ -6,8 +6,8 @@ The topics we'll dive into are:
 
 1. Referential Transparency, Exceptions & Side Effects (ReferentialTransparencySpec)
 2. Sentinel Values (SentinelValuesSpec)
-3. Try (TrySpec)
-4. Option (OptionSpec)
+3. Option (OptionSpec)
+4. Try (TrySpec)
 5. Either (EitherSpec)
 6. Validated (ValidatedSpec)
 

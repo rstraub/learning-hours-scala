@@ -7,6 +7,7 @@ import org.scalatest.matchers.should.Matchers
 class ReferentialTransparencySpec extends AnyFlatSpec with Matchers {
   // TODO Q - discuss what referential transparency is
   // A - Referential transparency means that a function call can be replaced by its result without changing the meaning of the program.
+  // In other words, RT expressions do not depend on context.
 
   // TODO Q - discuss why referential transparency matters
   // A - Makes it easier to reason about the code, as you don't have to consider the context of the function call.
@@ -53,4 +54,6 @@ class ReferentialTransparencySpec extends AnyFlatSpec with Matchers {
 
   // TODO Q - Discuss benefits of using exceptions for error handling
   // A - They allow us to factor out error handling logic into reusable patterns, such as try/catch/finally.
+
+  // Off to the next chapter - Sentinel Values!
 }

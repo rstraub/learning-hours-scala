@@ -4,8 +4,13 @@ import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color
 import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
 
-class SentinelValuesSpec extends AnyFlatSpec with Matchers {
+class SentinelValuesSpec
+    extends AnyWordSpec
+    with Matchers
+    with ScalaCheckPropertyChecks {
   /*
   Sentinel values are values that are used to represent an error state.
   Some examples are:
@@ -16,14 +21,22 @@ class SentinelValuesSpec extends AnyFlatSpec with Matchers {
 
   private def divide(a: Int, b: Int): Int = if (b == 0) -1 else a / b
 
-  // TODO - Make the tests pass, using sentinel values to represent error state
-  "divide" should "return the result of dividing two numbers" in {
-    divide(10, 2) shouldBe 5
-  }
+  "divide" should {
+    "return the result of dividing two numbers" in {
+      forAll { (n: Int, d: Int) =>
+        whenever(d != 0) {
+          divide(n, d) shouldBe n / d
+        }
+      }
+    }
 
-  it should "return -1 when dividing by 0" in {
-    divide(1, 0) shouldBe -1
+    "return -1 when dividing by 0" in {
+      forAll { (n: Int) =>
+        divide(n, 0) shouldBe -1
+      }
+    }
   }
+  // TODO - Make the tests pass, using sentinel values to represent error state
 
   private def parseSentinel(colors: String): Color = {
     colors match {
@@ -33,13 +46,15 @@ class SentinelValuesSpec extends AnyFlatSpec with Matchers {
     }
   }
 
-  "parseSentinel" should "return the color when parsing a valid color" in {
-    parseSentinel("R") shouldBe Red
-    parseSentinel("G") shouldBe Green
-  }
+  "parseSentinel" should {
+    "return the color when parsing a valid color" in {
+      parseSentinel("R") shouldBe Red
+      parseSentinel("G") shouldBe Green
+    }
 
-  it should "return null when parsing an invalid color" in {
-    parseSentinel("B") shouldBe null
+    "return null when parsing an invalid color" in {
+      parseSentinel("B") shouldBe null
+    }
   }
 
   // TODO Q - Discuss problems about sentinel values for error handling
@@ -50,4 +65,6 @@ class SentinelValuesSpec extends AnyFlatSpec with Matchers {
     - Leads to duplication, no general mechanism to deal with them
     - Doesn't work for polymorphic functions (those with type params, like `def max[A](xs: Seq[A]) = ???`), cannot invent a new sentinel value for every type
    */
+
+  // Off to the next chapter - Option!
 }
