@@ -1,6 +1,6 @@
 package nl.codecraftr.scala.learninghours.parttwo.errorhandling
 
-import cats.data.{NonEmptyList, Validated}
+import cats.data.NonEmptyList
 import cats.data.Validated.{Invalid, Valid}
 import nl.codecraftr.scala.learninghours.parttwo.errorhandling.Validateds.{
   Green,

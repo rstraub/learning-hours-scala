@@ -19,7 +19,10 @@ private[errorhandling] object Eithers {
     }
 
   def greetAny(input: String): String =
-    parseInput(input).fold(s => s"Hello, $s!", i => s"In ten years you'll be ${i+10} years old!")
+    parseInput(input).fold(
+      s => s"Hello, $s!",
+      i => s"In ten years you'll be ${i + 10} years old!"
+    )
 
   def traverseHierarchy(employee: Employee): Either[EmployeeErrors, Manager] =
     for {

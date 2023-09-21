@@ -30,7 +30,7 @@ class TuplesSpec extends AnyFlatSpec with Matchers {
     val person = ("John", 42)
     val (name, age) = person
 
-     name shouldBe "John"
-     age shouldBe 42
+    name shouldBe "John"
+    age shouldBe 42
   }
 }

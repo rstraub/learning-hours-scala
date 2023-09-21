@@ -1,14 +1,14 @@
 package nl.codecraftr.scala.learninghours.parttwo.errorhandling
 
-import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color
 import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color._
-import nl.codecraftr.scala.learninghours.parttwo.errorhandling.SentinelValues.{divideSentinel, parseColorSentinel, parseNumSentinel}
-import org.scalatest.flatspec.AnyFlatSpec
+import nl.codecraftr.scala.learninghours.parttwo.errorhandling.SentinelValues.{
+  divideSentinel,
+  parseColorSentinel,
+  parseNumSentinel
+}
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
-
-import scala.util.Try
 
 class SentinelValuesSpec
     extends AnyWordSpec
@@ -23,7 +23,6 @@ class SentinelValuesSpec
    */
 
   // TODO - Make the tests pass, using sentinel values to represent error state
-
 
   "divide" should {
     "return the result of dividing two numbers" in {
@@ -50,8 +49,6 @@ class SentinelValuesSpec
       parseNumSentinel("a") shouldBe 0
     }
   }
-
-
 
   "parseSentinel" should {
     "return the color when parsing a valid color" in {

@@ -4,7 +4,7 @@ import scala.util.{Failure, Success, Try}
 
 private[errorhandling] object Tries {
   case class Age(value: Int) extends AnyVal {
-      override def toString: String = value.toString
+    override def toString: String = value.toString
   }
 
   object Age {
