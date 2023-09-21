@@ -10,9 +10,9 @@ object SentinelValues {
 
   def parseNumSentinel(num: String): Int = Try(num.toInt).getOrElse(0)
 
-  def parseDivideSentinel(numToDivide: String, dividend: String): Int = {
+  def parseDivideSentinel(numToDivide: String, divideBy: String): Int = {
     val parsedNumToDivide = parseNumSentinel(numToDivide)
-    val parsedDividend = parseNumSentinel(dividend)
+    val parsedDividend = parseNumSentinel(divideBy)
     divideSentinel(parsedNumToDivide, parsedDividend)
   }
 
