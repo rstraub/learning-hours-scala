@@ -113,12 +113,12 @@ class OptionsSpec
    - Divide optionally is never called if either of the numbers is invalid
    - The composition is short-circuited when an invalid number is encountered (number to divide or the one to divide by)
    - We can continue writing our program for the happy path, and handle the error at the end or somewhere else
-   but we do so in a type-safe and referentially transparent way
+   but we do so in a type-safe and referentially transparent way (if the function itself is pure)
    */
 
   /*
     That wraps up the chapter on Options.
     I encourage you to explore the API of Option, and try to use it in your own code!
-    Next we'll look at Eithers!
+    Next we'll look at Try!
    */
 }

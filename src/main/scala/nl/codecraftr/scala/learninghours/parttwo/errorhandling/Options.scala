@@ -2,10 +2,10 @@ package nl.codecraftr.scala.learninghours.parttwo.errorhandling
 
 import scala.util.Try
 
-object Options {
-  def divideOptionally(a: Int, b: Int): Option[Int] = {
-    println(s"divide optionally $a / $b}")
-    if (b == 0) None else Some(a / b)
+private[errorhandling] object Options {
+  def divideOptionally(dividend: Int, divisor: Int): Option[Int] = {
+    println(s"divide optionally $dividend / $divisor}")
+    if (divisor == 0) None else Some(dividend / divisor)
   }
 
   def parseOptionally(num: String): Option[Int] = {
@@ -14,13 +14,13 @@ object Options {
   }
 
   def parseDivideOptionally(
-      numToDivide: String,
-      divideBy: String
+      dividend: String,
+      divisor: String
   ): Option[Int] = {
-    println(s"parse divide optionally $numToDivide / $divideBy")
+    println(s"parse divide optionally $dividend / $divisor")
     for {
-      num <- parseOptionally(numToDivide)
-      dividend <- parseOptionally(divideBy)
+      num <- parseOptionally(dividend)
+      dividend <- parseOptionally(divisor)
       result <- divideOptionally(num, dividend)
     } yield result
   }

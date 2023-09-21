@@ -5,14 +5,15 @@ import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color._
 
 import scala.util.Try
 
-object SentinelValues {
-  def divideSentinel(a: Int, b: Int): Int = if (b == 0) -1 else a / b
+private[errorhandling] object SentinelValues {
+  def divideSentinel(dividend: Int, divisor: Int): Int =
+    if (divisor == 0) -1 else dividend / divisor
 
   def parseNumSentinel(num: String): Int = Try(num.toInt).getOrElse(0)
 
-  def parseDivideSentinel(numToDivide: String, divideBy: String): Int = {
-    val parsedNumToDivide = parseNumSentinel(numToDivide)
-    val parsedDividend = parseNumSentinel(divideBy)
+  def parseDivideSentinel(dividend: String, divisor: String): Int = {
+    val parsedNumToDivide = parseNumSentinel(dividend)
+    val parsedDividend = parseNumSentinel(divisor)
     divideSentinel(parsedNumToDivide, parsedDividend)
   }
 
