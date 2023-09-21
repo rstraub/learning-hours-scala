@@ -1,8 +1,6 @@
 package nl.codecraftr.scala.learninghours.parttwo.errorhandling
 
 import cats.data.{Validated, ValidatedNel}
-import cats.data.Validated.{Invalid, Valid}
-import cats.implicits.toTraverseOps
 
 private[errorhandling] object Validateds {
   sealed trait Color
@@ -14,16 +12,8 @@ private[errorhandling] object Validateds {
     override def toString: String = s"Invalid color: $input"
   }
 
-  def parseColor(input: String): Validated[ColorParseError, Color] = {
-    input match {
-      case "R" => Valid(Red)
-      case "G" => Valid(Green)
-      case _   => Invalid(ColorParseError(input))
-    }
-  }
+  def parseColor(input: String): Validated[ColorParseError, Color] = ???
 
-  def parseColors(input: String): ValidatedNel[ColorParseError, List[Color]] = {
-    val colors = input.split(",").toList
-    colors.map(parseColor).traverse(_.toValidatedNel)
-  }
+  def parseColors(input: String): ValidatedNel[ColorParseError, List[Color]] =
+    ???
 }

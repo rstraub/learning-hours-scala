@@ -63,11 +63,7 @@ class SentinelValuesSpec
 
   // TODO Q - Discuss problems about sentinel values for error handling
   /* A -
-    - Not part of the type signature, i.e. the caller doesn't know about them
-    - Allows errors to silently propagate up, causing unexpected behavior in distant parts of the code
-    - Caller cannot "just call" such a function, but needs to adhere to implicit policy
-    - Leads to duplication, no general mechanism to deal with them
-    - Doesn't work for polymorphic functions (those with type params, like `def max[A](xs: Seq[A]) = ???`), cannot invent a new sentinel value for every type
+
    */
 
   // Off to the next chapter - Option!

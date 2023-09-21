@@ -20,9 +20,9 @@ class ValidatedsSpec extends AnyFlatSpec with Matchers {
    */
 
   // TODO - Q - What is the difference between Validated and Either?
-  // A - Validated can accumulate errors, Either can't
+  // A -
   // TODO - Q - When would you use what?
-  // A - Either to fail-fast, Validated to accumulate errors
+  // A -
 
   // TODO - we'll build a simple parser for colors
   "parseColor" should "return a color given a valid color name" in {

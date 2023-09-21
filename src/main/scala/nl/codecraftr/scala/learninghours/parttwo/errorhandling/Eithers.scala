@@ -1,6 +1,5 @@
 package nl.codecraftr.scala.learninghours.parttwo.errorhandling
 
-import cats.implicits._
 
 private[errorhandling] object Eithers {
   case class Employee(name: String, department: Option[Department])
@@ -11,22 +10,10 @@ private[errorhandling] object Eithers {
   case object EmployeeHasNoDepartment extends EmployeeErrors
   case object DepartmentHasNoManager extends EmployeeErrors
 
-  def parseInput(input: String): Either[String, Int] =
-    try {
-      input.toInt.asRight
-    } catch {
-      case _: NumberFormatException => input.asLeft
-    }
+  def parseInput(input: String): Either[String, Int] = ???
 
-  def greetAny(input: String): String =
-    parseInput(input).fold(
-      s => s"Hello, $s!",
-      i => s"In ten years you'll be ${i + 10} years old!"
-    )
+  def greetAny(input: String): String = ???
 
   def traverseHierarchy(employee: Employee): Either[EmployeeErrors, Manager] =
-    for {
-      department <- employee.department.toRight(EmployeeHasNoDepartment)
-      manager <- department.manager.toRight(DepartmentHasNoManager)
-    } yield manager
+    ???
 }

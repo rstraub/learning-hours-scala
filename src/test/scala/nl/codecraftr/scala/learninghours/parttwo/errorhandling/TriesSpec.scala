@@ -79,7 +79,7 @@ class TriesSpec
   }
 
   // TODO - Q When would you choose a Try over an Option?
-  // A - When we want to know the reason for the failure, and not just that it failed.
+  // A -
 
   /*
   As you can see, Try is a useful data type that can be used for error handling, and is similar in many ways to Option.

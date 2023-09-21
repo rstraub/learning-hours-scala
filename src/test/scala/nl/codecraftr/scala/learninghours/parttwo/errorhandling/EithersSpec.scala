@@ -66,10 +66,9 @@ class EithersSpec extends AnyFlatSpec with Matchers {
   }
 
   // TODO - Q in what cases would you use Eithers over Options?
-  // A - when you want to know why something failed
+  // A -
   // TODO - Q in what cases would you use Eithers over Try?
-  // A - when we want to use something other than Throwable as the error type,
-  // or when we want to return one of two possible types
+  // A -
 
   // I recommend you to explore Eithers on your own outside of this session,
   // the Cats library has a lot of useful functions for Eithers which are worth exploring

@@ -65,10 +65,7 @@ class OptionsSpec
   // TODO - Q What differences do you see between using exceptions/sentinel values and Option for error handling?
   // Tip focus on the type signature of the function and the way the caller has to handle the result
   /* A
-    - We clearly see the partial nature of the function in the type signature.
-  The caller knows that the function is not defined for all inputs, and has to handle the results.
-    - We can exhaustively match on the result, and handle all cases.
-    - Options are Referentially Transparent
+
    */
 
   /*
@@ -92,7 +89,7 @@ class OptionsSpec
   }
 
   // TODO - Q What did you notice in this composition?
-  // A - the incorrect value is propagated through the chain, causing the division to run on incorrect input
+  // A -
 
   // Off to a better way, let's do the same again, but now with Options
   "composing divide/parseNum with options" should "chain the calls" in {
@@ -110,10 +107,7 @@ class OptionsSpec
   // TODO - Q What did you notice in this improved composition?
   // Tip - print some text in each of the methods and see what is or isn't printed
   /* A
-   - Divide optionally is never called if either of the numbers is invalid
-   - The composition is short-circuited when an invalid number is encountered (number to divide or the one to divide by)
-   - We can continue writing our program for the happy path, and handle the error at the end or somewhere else
-   but we do so in a type-safe and referentially transparent way (if the function itself is pure)
+
    */
 
   /*
