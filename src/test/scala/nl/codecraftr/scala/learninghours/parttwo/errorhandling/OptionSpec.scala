@@ -5,6 +5,7 @@ import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color.{
   Green,
   Red
 }
+import nl.codecraftr.scala.learninghours.parttwo.errorhandling.SentinelValues.parseDivideSentinel
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
@@ -85,5 +86,22 @@ class OptionSpec
   However, what makes them more powerful than checked exceptions is that they are composable and polymorphic.
   This is due to the fact that they are a Monad (esoteric term, you might hear every now and again, just good to know an Option is one)!
   https://en.wikipedia.org/wiki/Monad_(functional_programming)
+
+  Options are incredibly powerful because they allow us to continue composing our programs in the presence of errors/absence of values.
+  An option can be thought of as a collection of zero or one elements, and short-circuits whenever it encounters a None.
    */
+
+  // TODO - Fix the assertions and find the cause
+  "composing divide/parseNum with sentinel values" should "chain the calls" in {
+    parseDivideSentinel("2", "2") shouldBe 1
+  }
+
+  it should "not short-circuit when parsing an invalid number" in {
+    parseDivideSentinel("2", "Banana") shouldBe -1
+  }
+
+  // TODO - Q What did you notice in this composition?
+  // A - the incorrect value is propagated through the chain, causing the division to run on incorrect input
+
+  // Off to a better way, let's do the same again, but now with Options
 }

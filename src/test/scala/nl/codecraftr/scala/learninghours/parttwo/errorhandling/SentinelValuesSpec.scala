@@ -2,10 +2,13 @@ package nl.codecraftr.scala.learninghours.parttwo.errorhandling
 
 import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color
 import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color._
+import nl.codecraftr.scala.learninghours.parttwo.errorhandling.SentinelValues.{divideSentinel, parseColorSentinel, parseNumSentinel}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
+
+import scala.util.Try
 
 class SentinelValuesSpec
     extends AnyWordSpec
@@ -19,41 +22,45 @@ class SentinelValuesSpec
   This makes error handling referentially transparent, but has some major downsides.
    */
 
-  private def divide(a: Int, b: Int): Int = if (b == 0) -1 else a / b
+  // TODO - Make the tests pass, using sentinel values to represent error state
+
 
   "divide" should {
     "return the result of dividing two numbers" in {
       forAll { (n: Int, d: Int) =>
         whenever(d != 0) {
-          divide(n, d) shouldBe n / d
+          divideSentinel(n, d) shouldBe n / d
         }
       }
     }
 
     "return -1 when dividing by 0" in {
       forAll { (n: Int) =>
-        divide(n, 0) shouldBe -1
+        divideSentinel(n, 0) shouldBe -1
       }
     }
   }
-  // TODO - Make the tests pass, using sentinel values to represent error state
 
-  private def parseSentinel(colors: String): Color = {
-    colors match {
-      case "R" => Red
-      case "G" => Green
-      case _   => null
+  "parseNum" should {
+    "return the number when parsing a valid number" in {
+      parseNumSentinel("1") shouldBe 1
+    }
+
+    "return 0 when parsing an invalid number" in {
+      parseNumSentinel("a") shouldBe 0
     }
   }
 
+
+
   "parseSentinel" should {
     "return the color when parsing a valid color" in {
-      parseSentinel("R") shouldBe Red
-      parseSentinel("G") shouldBe Green
+      parseColorSentinel("R") shouldBe Red
+      parseColorSentinel("G") shouldBe Green
     }
 
     "return null when parsing an invalid color" in {
-      parseSentinel("B") shouldBe null
+      parseColorSentinel("B") shouldBe null
     }
   }
 

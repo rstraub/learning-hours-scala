@@ -1,5 +1,6 @@
 package nl.codecraftr.scala.learninghours.parttwo.errorhandling
 
+import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color
 import nl.codecraftr.scala.learninghours.partone.scalafeatures.Color._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
@@ -21,8 +22,8 @@ class ReferentialTransparencySpec extends AnyFlatSpec with Matchers {
 
   // TODO Q - is the following function referentially transparent?
   // A - No, as it throws an error, the result of which is dependent on the context of the function call.
-  private def parseException(colors: String) = {
-    colors match {
+  private def parseExceptionally(color: String): Color = {
+    color match {
       case "R" => Red
       case "G" => Green
       case _   => throw new IllegalArgumentException("Unknown color")
@@ -31,19 +32,19 @@ class ReferentialTransparencySpec extends AnyFlatSpec with Matchers {
 
   // TODO - prove it by writing a test showcasing your answer
   it should "not be referentially transparent" in {
-    parseException("R") shouldBe Red
-    parseException("G") shouldBe Green
+    parseExceptionally("R") shouldBe Red
+    parseExceptionally("G") shouldBe Green
 
     // Surrounding the call with a try/catch, aka changing the context, ends up producing a different result.
     val catchResult =
-      try parseException("B")
+      try parseExceptionally("B")
       catch {
         case _: IllegalArgumentException => Red
       }
 
     catchResult shouldBe Red
 
-    assertThrows[IllegalArgumentException](parseException("B"))
+    assertThrows[IllegalArgumentException](parseExceptionally("B"))
   }
 
   // TODO Q - Discuss problems about exceptions for error handling (both checked and unchecked)
