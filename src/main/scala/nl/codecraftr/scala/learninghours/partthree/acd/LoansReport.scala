@@ -20,35 +20,43 @@ object Term {
 
 case class LoansReport(loans: Map[LoanId, Loan] /* Data */ ) {
   // Calculation
-  def lines: List[String] = {
-    val loanCountLine = s"${loans.size} Books loaned out"
+  private lazy val amountOfLoans = loans.size
+  // Calculation
+  private lazy val shortTermLoans = loans.filter(_._2.term == ShortTerm).toList
+  // Calculation
+  private lazy val longTermLoans = loans.filter(_._2.term == LongTerm).toList
 
-    val shortTermLines = termLines(ShortTerm)
-    val longTermLines = termLines(LongTerm)
+  // Calculation
+  def lines: List[String] = {
+    val loanCountLine = s"$amountOfLoans Books loaned out"
+
+    val shortTermLines = "Short term loans:" :: termLines(shortTermLoans)
+    val longTermLines = "Long term loans:" :: termLines(longTermLoans)
 
     "Loans report:" :: loanCountLine :: shortTermLines ++ longTermLines
   }
 
-  private def termLines(term: Term) =
-    s"$term loans:" :: loans
-      .filter(_._2.term == term)
+  // Calculation
+  private def termLines(loans: List[(LoanId, Loan)]) =
+    loans
       .map { case (id, loan) =>
         loanLine(id, loan)
       }
-      .toList
 
+  // Calculation
   private def loanLine(id: LoanId, loan: Loan) =
     s"Loan '${id.value}' is '${loan.book}' by '${loan.renter}'"
 }
 
-// Action
 object Logger {
+  // Action
   def log(lines: List[String]): Unit =
     lines.foreach(println)
 }
 
 // Action
 object Writer {
+  // Action
   def write(lines: List[String]): Unit = {
     import java.io._
     val pw = new PrintWriter(new File("target/report.txt"))
